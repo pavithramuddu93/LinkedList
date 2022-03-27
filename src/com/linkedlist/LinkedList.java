@@ -49,12 +49,14 @@ public class LinkedList<T> {
             node.next = newNode;
         }
     }
+
     public void pop() {
         if (null != head) {
             Node<T> newHead = head.next;
             head = newHead;
         }
     }
+
     public void popLast() {
         Node<T> tail = head;
         Node<T> prevNode = head;
@@ -64,6 +66,7 @@ public class LinkedList<T> {
         }
         prevNode.next = null;
     }
+
     public int searchByValue(T value) {
         Node<T> currNode = head;
         int index = 0;
@@ -80,6 +83,11 @@ public class LinkedList<T> {
             }
         }
         return index;
+    }
+
+    public void searchAndInsert(T searchValue, T InsertValue){
+        int index = searchByValue(searchValue) + 1;
+        addAtIndex(index, InsertValue);
     }
 
 }
