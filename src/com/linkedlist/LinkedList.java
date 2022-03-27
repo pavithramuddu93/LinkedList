@@ -2,7 +2,7 @@ package com.linkedlist;
 
 public class LinkedList<T> {
     Node<T> head;
-        public void add(T value) {
+       public void add(T value) {
         Node<T> newNode = new Node<T>();
         newNode.data = value;
         newNode.next = null;
@@ -33,7 +33,7 @@ public class LinkedList<T> {
         head = newNode;
     }
 
-       public void addAtIndex(int index, T data) {
+    public void addAtIndex(int index, T data) {
         Node<T> newNode = new Node<>();
         newNode.data = data;
 
@@ -46,6 +46,12 @@ public class LinkedList<T> {
             }
             newNode.next = node.next;
             node.next = newNode;
+        }
+    }
+    public void pop() {
+        if (null != head) {
+            Node<T> newHead = head.next;
+            head = newHead;
         }
     }
 
