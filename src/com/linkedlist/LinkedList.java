@@ -90,4 +90,34 @@ public class LinkedList<T> {
         addAtIndex(index, InsertValue);
     }
 
+    public void popAtIndex(int index) {
+        if (index == 0) {
+            pop();
+        } else {
+            Node<T> prevNode = head;
+            Node<T> currNode = head;
+            for (int i = 0; i < index; i++) {
+                prevNode = currNode;
+                currNode = currNode.next;
+            }
+            prevNode.next = currNode.next;
+        }
+    }
+
+    public void searchValueAndDelete (T searchValue){
+        int index = searchByValue(searchValue);
+        popAtIndex(index);
+    }
+
+        public int size() {
+        Node<T> temp = head;
+        int count = 0;
+        while (temp != null)
+        {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
 }
